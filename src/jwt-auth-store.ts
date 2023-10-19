@@ -1,3 +1,5 @@
+import { Subscribable } from './subscribale';
+
 export interface JwtAuthStoreOptions {
   key?: string;
 }
@@ -6,10 +8,11 @@ const defaultOptions = {
   key: 'jwt_token',
 };
 
-export class JwtAuthStore {
+export class JwtAuthStore extends Subscribable {
   private TOKEN_KEY: string;
 
   constructor(options: JwtAuthStoreOptions = {}) {
+    super();
     const { key } = {
       ...defaultOptions,
       ...options,
@@ -27,9 +30,11 @@ export class JwtAuthStore {
 
   public setToken(token: string) {
     localStorage.setItem(this.TOKEN_KEY, token);
+    this.notify(token);
   }
 
   public clearToken() {
     localStorage.removeItem(this.TOKEN_KEY);
+    this.notify(null);
   }
 }
