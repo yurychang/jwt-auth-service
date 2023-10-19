@@ -1,5 +1,25 @@
+export interface JwtAuthStoreOptions {
+  key?: string;
+}
+
+const defaultOptions = {
+  key: 'jwt_token',
+};
+
 export class JwtAuthStore {
-  private readonly TOKEN_KEY = 'jwt_token';
+  private TOKEN_KEY: string;
+
+  constructor(options: JwtAuthStoreOptions = {}) {
+    const { key } = {
+      ...defaultOptions,
+      ...options,
+    };
+    this.TOKEN_KEY = key;
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem(this.TOKEN_KEY);
+  }
 
   public getToken(): string | null {
     return localStorage.getItem(this.TOKEN_KEY);
