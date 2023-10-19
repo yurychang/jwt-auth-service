@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   build: {
     lib: {
-      name: 'ts-lib-template',
+      name: 'JwtAuth',
       entry: resolve(__dirname, 'src/index.ts'),
       formats: ['es', 'umd'],
       fileName: 'index',

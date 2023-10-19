@@ -1,4 +1,4 @@
-export class AuthStore {
+export class JwtAuthStore {
   private readonly TOKEN_KEY = 'jwt_token';
 
   public getToken(): string | null {

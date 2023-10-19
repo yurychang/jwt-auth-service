@@ -1,2 +1,2 @@
-export { authReqInterceptor } from './auth-interceptor';
-export { AuthStore } from './auth-store';
+export { JwtAuthStore } from './jwt-auth-store';
+export { jwtReqInterceptor } from './jwt-interceptor';

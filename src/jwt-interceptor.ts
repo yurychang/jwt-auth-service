@@ -1,8 +1,8 @@
 import { AxiosRequestConfig } from 'axios';
 
-import { AuthStore } from './auth-store';
+import { JwtAuthStore } from './jwt-auth-store';
 
-export function authReqInterceptor(AuthStore: AuthStore) {
+export function jwtReqInterceptor(AuthStore: JwtAuthStore) {
   return (req: AxiosRequestConfig) => {
     const token = AuthStore.getToken();
     if (token) {
