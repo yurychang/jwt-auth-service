@@ -4,7 +4,12 @@ module.exports = {
   },
   env: { es6: true },
   extends: ['@yurychang', '@yurychang/typescript', 'prettier'],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'vite.config.ts',
+    'vitest.config.ts',
+  ],
   plugins: ['simple-import-sort', 'import'],
   rules: {
     'simple-import-sort/imports': 'error',
