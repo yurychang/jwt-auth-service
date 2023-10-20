@@ -20,20 +20,20 @@ export class JwtAuthStore extends Subscribable {
     this.TOKEN_KEY = key;
   }
 
-  isAuthenticated(): boolean {
+  get isAuthenticated(): boolean {
     return !!localStorage.getItem(this.TOKEN_KEY);
   }
 
-  public getToken(): string | null {
+  getToken() {
     return localStorage.getItem(this.TOKEN_KEY);
   }
 
-  public setToken(token: string) {
+  setToken(token: string) {
     localStorage.setItem(this.TOKEN_KEY, token);
     this.notify(token);
   }
 
-  public clearToken() {
+  clearToken() {
     localStorage.removeItem(this.TOKEN_KEY);
     this.notify(null);
   }

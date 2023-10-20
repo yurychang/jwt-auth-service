@@ -19,11 +19,11 @@ describe('AuthStore', () => {
 
       authStore.setToken(token);
 
-      expect(authStore.isAuthenticated()).toBeTruthy();
+      expect(authStore.isAuthenticated).toBeTruthy();
     });
 
     it('should return false if token is not set', () => {
-      expect(authStore.isAuthenticated()).toBeFalsy();
+      expect(authStore.isAuthenticated).toBeFalsy();
     });
   });
 

@@ -1,6 +1,8 @@
 module.exports = {
   parserOptions: {
     sourceType: 'module',
+    extraFileExtensions: ['.vue'],
+    parser: '@typescript-eslint/parser',
   },
   env: { es6: true },
   extends: ['@yurychang', '@yurychang/typescript', 'prettier'],
@@ -17,5 +19,17 @@ module.exports = {
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
+    'no-unused-expressions': 'off',
   },
+  overrides: [
+    {
+      files: ['src/vue/*.{vue,ts}', 'demo/vue/*.{vue,ts}'],
+      extends: ['plugin:vue/vue3-recommended'],
+      parser: 'vue-eslint-parser',
+      rules: {
+        'plugin:@typescript-eslint/recommended-type-checked': 'off',
+        '@typescript-eslint/no-unsafe-argument': 'off',
+      },
+    },
+  ],
 };
