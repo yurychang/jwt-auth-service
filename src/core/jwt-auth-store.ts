@@ -1,6 +1,6 @@
 import { Subscribable } from './subscribale';
 
-export interface JwtAuthStoreOptions {
+export interface JWTAuthStoreOptions {
   key?: string;
 }
 
@@ -8,10 +8,10 @@ const defaultOptions = {
   key: 'jwt_token',
 };
 
-export class JwtAuthStore extends Subscribable {
+export class JWTAuthStore extends Subscribable {
   private TOKEN_KEY: string;
 
-  constructor(options: JwtAuthStoreOptions = {}) {
+  constructor(options: JWTAuthStoreOptions = {}) {
     super();
     const { key } = {
       ...defaultOptions,

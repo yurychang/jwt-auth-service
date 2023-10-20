@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
-import { JwtAuthStore } from './jwt-auth-store';
+import { JWTAuthStore } from './jwt-auth-store';
 
 describe('AuthStore', () => {
-  let authStore: JwtAuthStore;
+  let authStore: JWTAuthStore;
 
   beforeEach(() => {
-    authStore = new JwtAuthStore();
+    authStore = new JWTAuthStore();
   });
 
   afterEach(() => {

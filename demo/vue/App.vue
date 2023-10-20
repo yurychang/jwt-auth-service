@@ -1,13 +1,14 @@
 <template>
-  <child-consumer />
-  <jwt-auth-provider :store="store" />
+  <jwt-auth-provider :store="store">
+    <child-consumer />
+  </jwt-auth-provider>
 </template>
 
 <script setup lang="ts">
-import { JwtAuthStore } from '@/core/jwt-auth-store';
+import { JWTAuthStore } from '@/core/jwt-auth-store';
 import JwtAuthProvider from '@/vue/jwt-auth-provider.vue';
 
 import ChildConsumer from "./child-consumer.vue";
 
-const store = new JwtAuthStore();
+const store = new JWTAuthStore();
 </script>
