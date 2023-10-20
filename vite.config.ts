@@ -2,6 +2,7 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
+import { fileURLToPath } from 'url';
 
 export default defineConfig(({ command, mode, ssrBuild }) => ({
   plugins: [
@@ -13,29 +14,20 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
   ],
   build: {
     lib: {
-      name: 'JwtAuth',
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
         vue: resolve(__dirname, 'src/vue/index.ts'),
       },
-      formats: ['es', 'umd'],
+      formats: ['es'],
+      fileName: (_, entryName) => `${entryName}.js`,
     },
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        vue: resolve(__dirname, 'demo/vue/index.html'),
-      },
       external: ['vue'],
-      output: {
-        globals: {
-          vue: 'Vue',
-        },
-      },
     },
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
 }));
