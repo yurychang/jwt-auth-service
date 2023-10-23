@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { useJWT } from '@/vue/use-jwt';
+import { useJWT } from '@yurychang/jwt-auth/vue';
 
 const { isAuthenticated, token, setToken, clearToken } = useJWT();
 </script>

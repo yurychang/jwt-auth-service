@@ -23,7 +23,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/vue/*.{vue,ts}', 'demo/vue/*.{vue,ts}'],
+      files: ['*.{vue,ts}'],
       extends: ['plugin:vue/vue3-recommended'],
       parser: 'vue-eslint-parser',
       rules: {

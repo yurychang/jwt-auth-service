@@ -16,10 +16,10 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
     lib: {
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
-        vue: resolve(__dirname, 'src/vue/index.ts'),
+        'vue/index': resolve(__dirname, 'src/vue/index.ts'),
       },
       formats: ['es'],
-      fileName: (_, entryName) => `${entryName}.js`,
+      fileName: (_, entryPath) => `${entryPath}.js`,
     },
     rollupOptions: {
       external: ['vue'],
